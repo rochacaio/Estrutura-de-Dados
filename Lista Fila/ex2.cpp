@@ -34,7 +34,7 @@ Nome: montarObservatorioMonteM2 Premio: binoculo Tipo: d tempo: 400
 Nome: eliminarChefao Premio: milDolares Tipo: a tempo: 2000
 Nome: eliminarBando Premio: dezmilDolares Tipo: a tempo: 30000
 
-DREDD DEU 31 MAS VOU ALTERAR NA AULA DO DIA 02/04/2025
+DREDD DEU 31 MAS VOU ALTERAR NA AULA DO DIA 02/04/2025 - segunda tentativa e deu a mesma nota
  *
  */
 #include <iostream>
@@ -91,11 +91,14 @@ class Fila {
     private:
         Noh* mPtPrimeiro;
         Noh* mPtrUltimo;
+        int tamanho;
 };
 
 Fila::Fila() {
-	mPtPrimeiro = NULL;
-	mPtrUltimo = NULL;
+	this->mPtPrimeiro = NULL;
+	this->mPtrUltimo = NULL;
+	this->tamanho = 0;
+
 }
 
 Fila::~Fila() {
@@ -108,25 +111,30 @@ void Fila::Topo(){
 }
 Dado Fila::Desenfileirar() {
     if (this->Vazia()) throw runtime_error("Erro: Fila vazia!");
-    Noh* auxiliar = mPtPrimeiro;
-    Dado remover = mPtPrimeiro->mDado;
-    mPtPrimeiro = mPtPrimeiro->mProx;
-    delete auxiliar;
+    Noh* aux = this->mPtPrimeiro;
+    Dado valor = aux->mDado;
 
-    return remover;
+    this->mPtPrimeiro = aux->mProx;
+    this->tamanho--;
+    if(this->tamanho == 0) {
+		this->mPtPrimeiro = NULL;
+	}
+    delete aux;
+
+    return valor;
 }
 
 void Fila::Enfileirar(const Dado& d) {
-	Noh *mPtNovo = new Noh(d);
+    Noh* novoNoh = new Noh(d);
 
-	if (Vazia()) {
-        mPtPrimeiro = mPtNovo;
-        mPtrUltimo = mPtNovo;
-    } else {
-        mPtrUltimo->mProx = mPtNovo;
-        mPtrUltimo = mPtNovo;
+    if(this->tamanho == 0) {
+        this->mPtPrimeiro = novoNoh;
     }
-
+    else {
+        this->mPtrUltimo->mProx = novoNoh;
+    }
+    this->mPtrUltimo = novoNoh;
+    this->tamanho++;
 }
 
 void Fila::LimparTudo() {
