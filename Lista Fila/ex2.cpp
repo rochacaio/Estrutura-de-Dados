@@ -33,6 +33,8 @@ Nome: salvarDonzela Premio: hb20 Tipo: e tempo: 300
 Nome: montarObservatorioMonteM2 Premio: binoculo Tipo: d tempo: 400
 Nome: eliminarChefao Premio: milDolares Tipo: a tempo: 2000
 Nome: eliminarBando Premio: dezmilDolares Tipo: a tempo: 30000
+
+DREDD DEU 31 MAS VOU ALTERAR NA AULA DO DIA 02/04/2025
  *
  */
 #include <iostream>
