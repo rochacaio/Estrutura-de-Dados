@@ -34,7 +34,6 @@ Nome: montarObservatorioMonteM2 Premio: binoculo Tipo: d tempo: 400
 Nome: eliminarChefao Premio: milDolares Tipo: a tempo: 2000
 Nome: eliminarBando Premio: dezmilDolares Tipo: a tempo: 30000
 
-DREDD DEU 31 MAS VOU ALTERAR NA AULA DO DIA 02/04/2025 - segunda tentativa e deu a mesma nota
  *
  */
 #include <iostream>
@@ -54,7 +53,7 @@ void imprimir_dado(const Dado& umDado) {
     cout << "Nome: " << umDado.nome
          << " Premio: " << umDado.premio
          << " Tipo: " << umDado.tipo
-         << " e tempo: " << umDado.tempo
+         << " tempo: " << umDado.tempo
          << endl;
 }
 
@@ -87,7 +86,6 @@ class Fila {
         inline void Primeiro();
         // Informa se a Fila está Vazia.
         inline bool Vazia();
-        void Topo();
     private:
         Noh* mPtPrimeiro;
         Noh* mPtrUltimo;
@@ -105,10 +103,6 @@ Fila::~Fila() {
 	this->LimparTudo();
 }
 
-void Fila::Topo(){
-	Dado valorMostrar = mPtPrimeiro->mDado;
-	imprimir_dado(valorMostrar);
-}
 Dado Fila::Desenfileirar() {
     if (this->Vazia()) throw runtime_error("Erro: Fila vazia!");
     Noh* aux = this->mPtPrimeiro;
@@ -153,7 +147,6 @@ bool Fila::Vazia() {
 	return mPtPrimeiro == NULL;
 }
 
-
 int main() {
     Fila fila;
     Dado info;
@@ -173,7 +166,7 @@ int main() {
                     fila.LimparTudo();
                     break;
                 case 'e': // espiar
-                    fila.Topo();
+                    fila.Primeiro();
                     break;
                 case 'f': // finalizar
                     // checado no do-while
