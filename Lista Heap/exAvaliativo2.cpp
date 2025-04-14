@@ -1,10 +1,3 @@
-/*
-    MaxHeap, para alteração de prioridade
-    by joukim & bruno, 2019
-    alterado em 2023 by Renato
-    modificado em 2025 para usar prioridade como critério principal
-*/
-
 #include <iostream>
 #include <utility> // para usar swap
 #include <stdexcept> // para usar exceção com runtime_error
