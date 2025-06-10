@@ -1,4 +1,3 @@
-// csv_to_bin.cpp
 #include "registro.hpp"
 #include <fstream>
 #include <string>

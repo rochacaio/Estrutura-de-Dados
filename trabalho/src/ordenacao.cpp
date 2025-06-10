@@ -1,4 +1,3 @@
-// ordenacao_externa.cpp
 #include "registro.hpp"
 #include <fstream>
 #include <cstring>
