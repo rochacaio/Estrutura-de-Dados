@@ -15,6 +15,9 @@ struct Registro {
 
     void fromCSVLine(const string& line);
     void print() const;
+    bool operator>(const Registro& other) const {
+        return id > other.id;
+    }
 };
 
 #endif

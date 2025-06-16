@@ -3,6 +3,21 @@
 
 using namespace std;
 
+void imprimirTodos(const string& binFile) {
+    ifstream in(binFile, ios::binary);
+    if (!in.is_open()) {
+        cout << "Erro ao abrir o arquivo binário para leitura.\n";
+        return;
+    }
+
+    Registro reg;
+    while (in.read((char*)&reg, sizeof(Registro))) {
+        reg.print();
+    }
+
+    in.close();
+}
+
 void inserirNaPosicao(const string& path, const Registro& r, int pos) {
     fstream file(path, ios::in | ios::out | ios::binary);
     file.seekp(pos * sizeof(Registro));
@@ -41,19 +56,4 @@ void trocarRegistros(const string& path, int pos1, int pos2) {
     file.seekp(pos2 * sizeof(Registro));
     file.write(reinterpret_cast<const char*>(&r1), sizeof(Registro));
     file.close();
-}
-
-void imprimirTodos(const string& binFile) {
-    ifstream in(binFile, ios::binary);
-    if (!in.is_open()) {
-        cout << "Erro ao abrir o arquivo binário para leitura.\n";
-        return;
-    }
-
-    Registro reg;
-    while (in.read((char*)&reg, sizeof(Registro))) {
-        reg.print();
-    }
-
-    in.close();
 }
