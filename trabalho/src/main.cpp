@@ -14,8 +14,8 @@ void imprimirTodos(const string&);
 void ordering(const string&, const string&);
 
 int main() {
-    string csv = "../data/data_athlete_event_for_test.csv";
-    // string csv = "../data/data_athlete_event.csv";
+    // string csv = "../data/data_athlete_event_for_test.csv";
+    string csv = "../data/data_athlete_event.csv";
     string bin = "../data/binario.dat";
     string binOrdenado = "../data/ordenado.dat";
 
@@ -36,6 +36,7 @@ int main() {
         << "e - Alterar algum registro" << endl
         << "o - Ordenar por id" << endl
         << "x - Imprimir todos os registros ordenados" << endl
+        << "t - Realiza um teste de todas as funcionalidades automaticamente" << endl
         << "f - Finalizar" << endl;
 
         cin >> comando;
@@ -103,6 +104,9 @@ int main() {
             break;
         case 'x': //Imprimir todos os registros
             imprimirTodos(binOrdenado);
+            break;
+        case 't': //Imprimir todos os registros
+            testesAutomaticos();
             break;
         case 'f': //Finalizar
             /* Tratado no while */
